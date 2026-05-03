@@ -1,0 +1,28 @@
+# Single source of truth for model names. Update here when models deprecate.
+# Last verified: 2026-05-02
+
+defaults:
+  claude:
+    fast: claude-haiku-4-5
+    standard: claude-sonnet-4-5
+    deep: claude-opus-4-7
+  gemini:
+    image: gemini-2.5-flash-image
+    text: gemini-2.5-pro
+    fast: gemini-2.5-flash
+  elevenlabs:
+    voice_male_pro: JBFqnCBsd6RMkjVDRZzb  # George
+    model: eleven_turbo_v2_5
+  whisper:
+    local_size: base
+
+# Per-task model overrides — pipelines call get_model("<task>")
+tasks:
+  shorts_script_generation: claude-sonnet-4-5
+  longform_metadata_generation: claude-sonnet-4-5
+  briefing_generation: claude-haiku-4-5      # cheap + fast for cron briefings
+  thumbnail_generation: gemini-2.5-flash-image
+  broll_generation: gemini-2.5-flash-image
+  video_qc_review: gemini-2.5-flash
+  blog_post_generation: claude-sonnet-4-5
+  social_post_generation: claude-haiku-4-5
